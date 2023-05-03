@@ -6,63 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movement Room</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.17/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        @keyframes laser1 {
-            0% {
-                transform: translateY(-100%);
-            }
-
-            100% {
-                transform: translateY(100%);
-            }
-        }
-
-        @keyframes laser2 {
-            0% {
-                transform: translateX(-100%);
-            }
-
-            100% {
-                transform: translateX(100%);
-            }
-        }
-
-        .laser1,
-        .laser2 {
-            position: absolute;
-            opacity: 0.5;
-            animation-duration: 1s;
-            /* Acelerado en un 40% */
-            animation-iteration-count: infinite;
-            z-index: -1;
-        }
-
-        .laser1 {
-            width: 2px;
-            height: 100%;
-            background-color: #3b82f6;
-            animation-name: laser1;
-            animation-timing-function: linear;
-        }
-
-        .laser2 {
-            width: 100%;
-            height: 2px;
-            background-color: #9333ea;
-            animation-name: laser2;
-            animation-timing-function: linear;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="bg-gradient-to-r from-purple-900 via-purple-950 to-black min-h-screen relative overflow-hidden">
-    <!-- Lasers -->
     <div class="laser1" id="laser1a"></div>
     <div class="laser1" id="laser1b"></div>
     <div class="laser2" id="laser2a"></div>
     <div class="laser2" id="laser2b"></div>
 
-    <!-- Navbar -->
     <nav class="container mx-auto px-6 py-3 border-b-2 border-purple-600">
         <div class="flex justify-between items-center">
             <a href="#" class="text-3xl font-bold text-white">Sala de Juego</a>
@@ -74,7 +26,6 @@
         </div>
     </nav>
 
-    <!-- Body -->
     <main class="container mx-auto px-6 py-10">
         <div class="text-center">
             <h1 class="text-5xl font-bold text-white mb-6">¡¡Bienvenido a Movement Room Chile!!</h1>
@@ -83,7 +34,6 @@
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="container mx-auto px-6 py-4 border-t-2 border-purple-600">
         <div class="flex justify-between items-center">
             <p class="text-white">&copy; Movement Room Chile.</p>
@@ -93,39 +43,8 @@
             </ul>
         </div>
     </footer>
-    <script>
-        // Función para generar números aleatorios entre min y max
-        function randomBetween(min, max) {
-          return Math.floor(Math.random() * (max - min + 1) + min);
-        }
-    
-        // Establecer ubicaciones aleatorias para los láseres
-        function setRandomLaserPositions(laser) {
-          laser.style.left = `${randomBetween(0, 100)}%`;
-          laser.style.top = `${randomBetween(0, 100)}%`;
-        }
-    
-        // Inicializar las posiciones de los láseres
-        const laser1a = document.getElementById("laser1a");
-        const laser1b = document.getElementById("laser1b");
-        const laser2a = document.getElementById("laser2a");
-        const laser2b = document.getElementById("laser2b");
-    
-        setRandomLaserPositions(laser1a);
-        setRandomLaserPositions(laser1b);
-        setRandomLaserPositions(laser2a);
-        setRandomLaserPositions(laser2b);
-    
-        // Actualizar las posiciones de los láseres después de que se complete la animación
-        function onAnimationIteration(event) {
-          setRandomLaserPositions(event.target);
-        }
-    
-        laser1a.addEventListener("animationiteration", onAnimationIteration);
-        laser1b.addEventListener("animationiteration", onAnimationIteration);
-        laser2a.addEventListener("animationiteration", onAnimationIteration);
-        laser2b.addEventListener("animationiteration", onAnimationIteration);
-      </script>
+
+    <script src="index.js"></script>
 </body>
 
 </html>
